@@ -1,3 +1,6 @@
+var CartItem = require('./cart-item.js');
+var DateTime = require('./datetime.js');
+
 function Pos() {}
 
 Pos.prototype.printBills = function(cart) {

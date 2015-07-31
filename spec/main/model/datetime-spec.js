@@ -1,12 +1,23 @@
-// var DateTime = require('../../../main/model/datetime.js');
-//
-// describe("DateTime", function() {
-//   describe("constructor", function() {
-//     it("should accept barcode, name, unit, price as parameters", function() {
-//       var theDateTime = new DateTime('0000001', '雪碧', '瓶', 3.00);
-//       expect(theDateTime.barcode).toBe('0000001');
-//       expect(theDateTime.name).toBe('雪碧');
-//
-//     });
-//   });
-// });
+var DateTime = require('../../../main/model/datetime.js');
+
+describe("DateTime", function() {
+
+  var dateDigitToString = function(num) {
+    return num < 10 ? '0' + num : num;
+  };
+
+  var currentDate = new Date(),
+    year = dateDigitToString(currentDate.getFullYear()),
+    month = dateDigitToString(currentDate.getMonth() + 1),
+    date = dateDigitToString(currentDate.getDate()),
+    hour = dateDigitToString(currentDate.getHours()),
+    minute = dateDigitToString(currentDate.getMinutes()),
+    second = dateDigitToString(currentDate.getSeconds()),
+    formattedDateString = year + '年' + month + '月' + date + '日 ' + hour + ':' + minute + ':' + second;
+
+  describe("getFormattedDate", function() {
+    it("should return correct formatSting", function() {
+      expect(DateTime.getFormattedDate()).toEqual(formattedDateString);
+    });
+  });
+});
