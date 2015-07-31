@@ -1,8 +1,12 @@
-var allItems = loadAllItems();
+var allItems = [];
 
 function CartItem(barcode, count) {
   this.barcode = barcode;
   this.count = count;
+}
+
+CartItem.setAllItems = function(itemArr) {
+  allItems = itemArr;
 }
 
 CartItem.prototype.getItem = function() {
@@ -44,8 +48,13 @@ CartItem.prototype.getTotalPrice = function() {
   return this.getPrice() * this.count;
 };
 
+var promotions = [];
+CartItem.setPromotions = function(promotionsArr) {
+  promotions = promotionsArr;
+};
+
 CartItem.prototype.getPromotionCount = function() {
-  var promotions = loadPromotions();
+  //var promotions = loadPromotions();
   var promotionCount = 0;
   var that = this;
 
