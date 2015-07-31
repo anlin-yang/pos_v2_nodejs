@@ -65,13 +65,13 @@ describe("CartItem", function() {
   });
 
   describe("getSubtotal", function() {
-    it("should return correct subtotal",function() {
+    it("should return correct subtotal", function() {
       expect(theCartItem.getSubtotal()).toBe(3.00);
     });
   });
 
   describe("getTotalPrice", function() {
-    it("should return correct totalPrice",function() {
+    it("should return correct totalPrice", function() {
       expect(theCartItem.getTotalPrice()).toBe(3.00);
     });
   });

@@ -1,3 +1,4 @@
+var CartItem = require('./cart-item.js');
 function Cart() {
   this.cartItems = [];
 }
