@@ -1,13 +1,18 @@
 var allItems = [];
+var promotions = [];
 
 function CartItem(barcode, count) {
   this.barcode = barcode;
   this.count = count;
 }
 
+CartItem.setPromotions = function(promotionsArr) {
+  promotions = promotionsArr;
+};
+
 CartItem.setAllItems = function(itemArr) {
   allItems = itemArr;
-}
+};
 
 CartItem.prototype.getItem = function() {
   if (this._item) { // 缓存技术，第一次没有_item的时候创建一个，如果有了直接返回不用每次创建。
@@ -23,7 +28,7 @@ CartItem.prototype.getItem = function() {
     this._item = item;
     return item;
   }
-}
+};
 
 CartItem.prototype.getName = function() {
   var item = this.getItem();
@@ -46,11 +51,6 @@ CartItem.prototype.getSubtotal = function() {
 
 CartItem.prototype.getTotalPrice = function() {
   return this.getPrice() * this.count;
-};
-
-var promotions = [];
-CartItem.setPromotions = function(promotionsArr) {
-  promotions = promotionsArr;
 };
 
 CartItem.prototype.getPromotionCount = function() {
