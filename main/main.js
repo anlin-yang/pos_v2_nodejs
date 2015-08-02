@@ -1,3 +1,7 @@
+var Scaner = require('./model/scaner.js');
+var Cart = require('./model/cart.js');
+var Pos = require('./model/pos.js');
+
 function printReceipt(inputs) {
   var scaner = new Scaner();
   var cart = new Cart();
@@ -8,3 +12,5 @@ function printReceipt(inputs) {
   });
   pos.printBills(cart);
 }
+
+module.exports = printReceipt;
