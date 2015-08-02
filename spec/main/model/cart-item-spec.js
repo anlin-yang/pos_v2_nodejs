@@ -4,6 +4,7 @@ var Promotion = require('../../../main/model/promotion.js');
 
 describe("CartItem", function() {
   var theCartItem;
+
   beforeEach(function() {
     var itemArr = [
       new Item('ITEM000000', '可口可乐', '瓶', 3.00),
@@ -13,7 +14,6 @@ describe("CartItem", function() {
       new Item('ITEM000004', '电池', '个', 2.00),
       new Item('ITEM000005', '方便面', '袋', 4.50)
     ];
-
     var promotionsArr = [
       new Promotion('BUY_TWO_GET_ONE_FREE', [
         'ITEM000000',
@@ -26,7 +26,6 @@ describe("CartItem", function() {
     CartItem.setPromotions(promotionsArr);
     theCartItem = new CartItem('ITEM000000', 1);
   });
-
 
   describe("constructor", function() {
     it("should accept barcode, count as parameters", function() {
@@ -57,9 +56,7 @@ describe("CartItem", function() {
     it("should return correct promotionCount", function() {
       expect(theCartItem.getPromotionCount()).toBe(0);
     });
-  });
 
-  describe("getPromotionCount", function() {
     it("should return correct promotionCount", function() {
       theCartItem = new CartItem('ITEM000000', 4);
       expect(theCartItem.getPromotionCount()).toBe(1);

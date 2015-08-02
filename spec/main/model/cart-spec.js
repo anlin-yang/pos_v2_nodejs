@@ -2,7 +2,7 @@ var Cart = require('../../../main/model/cart.js');
 
 describe("Cart", function() {
   var theCart;
-  
+
   beforeEach(function() {
     theCart = new Cart();
     theCart.addItem('ITEM000000', 2);
@@ -19,9 +19,7 @@ describe("Cart", function() {
     it("should add two cartItems", function() {
       expect(theCart.cartItems.length).toBe(2);
     });
-  });
 
-  describe("addItem", function() {
     it("cartItems length should not increase.", function() {
       theCart.addItem('ITEM000001', 2);
       expect(theCart.cartItems.length).toBe(2);
