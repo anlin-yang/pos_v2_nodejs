@@ -15,5 +15,4 @@ DateTime.getFormattedDate = function(currentDate) {
   return formattedDateString;
 };
 
-
 module.exports = DateTime;
