@@ -59,6 +59,13 @@ describe("CartItem", function() {
     });
   });
 
+  describe("getPromotionCount", function() {
+    it("should return correct promotionCount", function() {
+      theCartItem = new CartItem('ITEM000000', 4);
+      expect(theCartItem.getPromotionCount()).toBe(1);
+    });
+  });
+
   describe("getSubtotal", function() {
     it("should return correct subtotal", function() {
       expect(theCartItem.getSubtotal()).toBe(3.00);
