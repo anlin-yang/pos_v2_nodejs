@@ -14,7 +14,7 @@ CartItem.setAllItems = function(itemArr) {
   allItems = itemArr;
 };
 
-CartItem.prototype.getItem = function() {
+CartItem.prototype._getItem = function() {
   if (this._item) { // 缓存技术，第一次没有_item的时候创建一个，如果有了直接返回不用每次创建。
     return this._item;
   } else {
@@ -31,17 +31,17 @@ CartItem.prototype.getItem = function() {
 };
 
 CartItem.prototype.getName = function() {
-  var item = this.getItem();
+  var item = this._getItem();
   return item.name;
 };
 
 CartItem.prototype.getUnit = function() {
-  var item = this.getItem();
+  var item = this._getItem();
   return item.unit;
 };
 
 CartItem.prototype.getPrice = function() {
-  var item = this.getItem();
+  var item = this._getItem();
   return item.price;
 };
 
@@ -54,7 +54,6 @@ CartItem.prototype.getTotalPrice = function() {
 };
 
 CartItem.prototype.getPromotionCount = function() {
-  //var promotions = loadPromotions();
   var promotionCount = 0;
   var that = this;
 

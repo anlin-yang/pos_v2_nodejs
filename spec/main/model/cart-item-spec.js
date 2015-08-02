@@ -3,40 +3,35 @@ var Item = require('../../../main/model/item.js');
 var Promotion = require('../../../main/model/promotion.js');
 
 describe("CartItem", function() {
-  var itemArr = [
-    new Item('ITEM000000', '可口可乐', '瓶', 3.00),
-    new Item('ITEM000001', '雪碧', '瓶', 3.00),
-    new Item('ITEM000002', '苹果', '斤', 5.50),
-    new Item('ITEM000003', '荔枝', '斤', 15.00),
-    new Item('ITEM000004', '电池', '个', 2.00),
-    new Item('ITEM000005', '方便面', '袋', 4.50)
-  ];
+  var theCartItem;
+  beforeEach(function() {
+    var itemArr = [
+      new Item('ITEM000000', '可口可乐', '瓶', 3.00),
+      new Item('ITEM000001', '雪碧', '瓶', 3.00),
+      new Item('ITEM000002', '苹果', '斤', 5.50),
+      new Item('ITEM000003', '荔枝', '斤', 15.00),
+      new Item('ITEM000004', '电池', '个', 2.00),
+      new Item('ITEM000005', '方便面', '袋', 4.50)
+    ];
 
-  var promotionsArr = [
-    new Promotion('BUY_TWO_GET_ONE_FREE', [
-      'ITEM000000',
-      'ITEM000001',
-      'ITEM000005'
-    ])
-  ];
+    var promotionsArr = [
+      new Promotion('BUY_TWO_GET_ONE_FREE', [
+        'ITEM000000',
+        'ITEM000001',
+        'ITEM000005'
+      ])
+    ];
 
-  CartItem.setAllItems(itemArr);
-  CartItem.setPromotions(promotionsArr);
-  var theCartItem = new CartItem('ITEM000000', 1);
+    CartItem.setAllItems(itemArr);
+    CartItem.setPromotions(promotionsArr);
+    theCartItem = new CartItem('ITEM000000', 1);
+  });
+
 
   describe("constructor", function() {
     it("should accept barcode, count as parameters", function() {
       expect(theCartItem.barcode).toBe('ITEM000000');
       expect(theCartItem.count).toBe(1);
-    });
-  });
-
-  describe("getItem", function() {
-    it("should return correct Item", function() {
-      expect(theCartItem.getItem().barcode).toBe('ITEM000000');
-      expect(theCartItem.getItem().name).toBe('可口可乐');
-      expect(theCartItem.getItem().unit).toBe('瓶');
-      expect(theCartItem.getItem().price).toBe(3.00);
     });
   });
 
