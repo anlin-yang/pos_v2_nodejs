@@ -1,23 +1,29 @@
 var DateTime = require('../../../main/model/datetime.js');
 
 describe("DateTime", function() {
-
-  var dateDigitToString = function(num) {
-    return num < 10 ? '0' + num : num;
-  };
-
-  var currentDate = new Date(),
-    year = dateDigitToString(currentDate.getFullYear()),
-    month = dateDigitToString(currentDate.getMonth() + 1),
-    date = dateDigitToString(currentDate.getDate()),
-    hour = dateDigitToString(currentDate.getHours()),
-    minute = dateDigitToString(currentDate.getMinutes()),
-    second = dateDigitToString(currentDate.getSeconds()),
-    formattedDateString = year + '年' + month + '月' + date + '日 ' + hour + ':' + minute + ':' + second;
-
   describe("getFormattedDate", function() {
+    var currentDate = {
+      getFullYear: function() {
+        return 1;
+      },
+      getMonth: function() {
+        return 1;
+      },
+      getDate: function() {
+        return 1;
+      },
+      getHours: function() {
+        return 11;
+      },
+      getMinutes: function() {
+        return 1;
+      },
+      getSeconds: function() {
+        return 1;
+      }
+    };
     it("should return correct formatSting", function() {
-      expect(DateTime.getFormattedDate()).toEqual(formattedDateString);
+      expect(DateTime.getFormattedDate(currentDate)).toEqual("01年02月01日 11:01:01");
     });
   });
 });

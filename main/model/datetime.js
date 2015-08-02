@@ -4,9 +4,8 @@ var dateDigitToString = function(num) {
   return num < 10 ? '0' + num : num;
 };
 
-DateTime.getFormattedDate = function() {
-  var currentDate = new Date(),
-    year = dateDigitToString(currentDate.getFullYear()),
+DateTime.getFormattedDate = function(currentDate) {
+  var year = dateDigitToString(currentDate.getFullYear()),
     month = dateDigitToString(currentDate.getMonth() + 1),
     date = dateDigitToString(currentDate.getDate()),
     hour = dateDigitToString(currentDate.getHours()),
